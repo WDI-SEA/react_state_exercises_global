@@ -86,5 +86,3 @@ component. Make sure you have a place in your JSX that displays the result!
 
 - Make the calculator work with any of the 4 basic arithmetic operations
 (+, -, \*, /). How will this change your `state` and your JSX?
-
-<a href="https://git.generalassemb.ly/education-product/React-Exercise-Solutions/tree/master/exercises/calculator/src" target="_blank" >Solution files here!</a>

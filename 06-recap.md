@@ -14,9 +14,6 @@ Don't worry - while there is a lot to see at first, React is a pretty straightfo
   - State can trigger changes in `props`, or `props` can come from parent components.
 - State **never** gets passed back up to parent components! Unidirectional flow means changes are only ever propagated down the component tree.
 
-#### Last thoughts before the project... a video.
+#### Last thoughts before the project...
 
-<video width="640" height="480" controls="controls" type="video/mp4">
-<source src="https://embed-ssl.wistia.com/deliveries/bfae96f54dbe068256aa5f0e5fc44696c7179f57.bin">
-Your browser does not support the video tag.
-</video>
+[A video on React in general.](https://generalassembly.wistia.com/medias/2qrtla3y8a)

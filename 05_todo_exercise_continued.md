@@ -185,9 +185,3 @@ addItem(e) {
   // ...
 }
 ```
-
-## Check yourself!
-
-**Once you have a solution:**
-
-You can check a sample [solution here](https://git.generalassemb.ly/education-product/React-Exercise-Solutions/tree/master/exercises/to-do-list/src).

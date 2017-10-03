@@ -5,12 +5,7 @@ At this point, we know about React properties and how they relate to our compone
 * That's where `state` comes in.
 
 What's state?
-> Try it yourself alongside this video in [this codepen](https://codepen.io/susir/pen/GWONLp).
-
-<video width="640" height="480" controls="controls" type="video/mp4">
-<source src="https://embed-ssl.wistia.com/deliveries/b448050a6e1b94345cbef6534ae8510eb771abdd.bin">
-Your browser does not support the video tag.
-</video>
+> Try it yourself alongside [this video](https://generalassembly.wistia.com/medias/3ldc3tnyv0) in [this codepen](https://codepen.io/susir/pen/GWONLp).
 
 Values stored in a component's `state` are mutable attributes.
 * `State` is similar to `props`, but *is meant to be changed*.
@@ -207,10 +202,5 @@ This is super important! Using React, **we only change parts of the DOM that nee
 #### Challenge: Count to 10
 
 After 10 clicks, the user should see the counter reset to 1.
-
-> Once you have a solution:
-
-You can check a sample [solution here!](https://git.generalassemb.ly/education-product/React-Exercise-Solutions/blob/master/exercises/state_wrap_10/App.js).
-
 
 *If you're interested in reading more in depth about this, here is more on what [should & shouldn't go in state](https://facebook.github.io/react/docs/state-and-lifecycle.html). This link is also in the Further Reading page at the end of the React module.*

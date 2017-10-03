@@ -22,13 +22,6 @@ Your solution should look as follows:
 ![Solution for Project](images/State_SOLUTION.png)
 
 
-# Check yourself!
-
-> Once you have a solution:
-
-You can check a sample [solution here.](https://git.generalassemb.ly/education-product/React-Exercise-Solutions/tree/master/projects/project-03-state/solution-code/src).
-
-
 ### Bonus I ###
 
 Use a form to take in user input.
@@ -44,9 +37,3 @@ Use a form to take in user input.
 Your solution should look as follows:
 
 ![Solution for Project](images/state_BONUS_SOLUTION.png)
-
-# Check yourself!
-
-**Once you have a solution:**
-
-You can check a sample [solution here.](https://git.generalassemb.ly/education-product/React-Exercise-Solutions/tree/master/projects/project-03-state/bonus-code/src). This includes the bonus of using `onChange`.

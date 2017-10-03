@@ -4,7 +4,7 @@ Now that you've wrapped up the Blog project for now, you should take a moment to
 
 An example of a Post Component could be seen as follows:
 
-```jsx
+```js
 class Post extends Component {
 
   constructor(props) {
@@ -50,13 +50,13 @@ Let's consider a data flow example.
 
 1. Here's the code that kicks everything off:
 
-  ```jsx
+  ```js
   <Post body="This is my first blog post" />
   ```
 
 2. Inside of this post component, our constructor would essentially be saying:
 
-  ```jsx
+  ```js
   constructor (props) { // props is { body: "This is my first blog post" }
     super()
     this.state = {
@@ -67,13 +67,13 @@ Let's consider a data flow example.
 
 3. Next, we define a listener in the JSX `<button>` element. This calls the `changeBody()` method `.onClick`. That is defined here:
 
-  ```jsx
+  ```js
   <button onClick={(e) => this.changeBody(e)}>Edit Body</button>
   ```
 
 4. When the _button_ is _clicked_, the `changeBody()` method is called.
 
-  ```jsx
+  ```js
   changeBody (e) {
     let newBody = prompt("What should the new body be?")
     this.setState({
