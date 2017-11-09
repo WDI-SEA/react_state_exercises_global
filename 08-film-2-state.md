@@ -85,8 +85,13 @@ Now you have an ALL section and a FAVES section - you can hook that filtering fu
 
 Add an `onClick` inside `FilmListing` so that when "FAVES" is clicked, it calls the `handleFilterClick` method you created with the parameter `'faves'`.
 
-**Hint**: This will look like this:
-`onClick={() => this.handleFilterClick('faves')}`
+<details>
+  <summary>Hint</summary>
+  This will look like this:
+  <code>onClick={() => this.handleFilterClick('faves')}</code>
+</details>
+
+
 
 Try clicking FAVES - does it print to the console?
 
@@ -155,7 +160,12 @@ When the user clicks the Fave icon/button to add or remove a film from their fav
 
 Inside of the `handleClick` method on the `Fave` component, use `this.setState` to toggle the value of `isFave`. "Toggle" means you always want to set the new value to the opposite of the current value.
 
-**Hint:** One way to do this is with `isFave: !this.state.isFave`.
+<details>
+  <summary>Hint - one way to do this could be:</summary>
+  <code>isFave: !this.state.isFave</code>
+</details>
+
+
 
 #### Step 5: Set the `className` on `div` based on the `IsFave` state
 
@@ -167,14 +177,14 @@ You need to make this happen:
 
 Note: It will be easier to read if you determine which class to set first, store that value in a variable, then insert that variable into the `className` attribute.
 
-**Hint** A more advanced and succinct way to write this function could be:
-
-```js
-const isFave = (this.state.isFave) ? 'remove_from_queue' : 'add_to_queue'
-```
-
-- You can drop this in the `render` method.
-- This checks the current `isFave` state for true or false. If it's true, it sets the `const` variable `isFave` to `remove_from_queue`; when it's false, it sets the `const` variable `isFave` to `add_to_queue`.
+<details>
+  <summary>Hint - a more advanced and succinct way to write this function could be:</summary>
+  <code>const isFave = (this.state.isFave) ? 'remove_from_queue' : 'add_to_queue'</code>
+  
+  You can drop this in the <code>render</code> method. This checks the current <code>isFave</code> state for true or false.
+  
+  If it's true, it sets the <code>const</code> variable <code>isFave</code> to <code>remove_from_queue</code>; when it's false, it sets the <code>const</code> variable <code>isFave</code> to <code>add_to_queue</code>.
+</details>
 
 Once you have this, clicking the "Add" icon in each row should change the icon displayed.
 
@@ -200,14 +210,17 @@ To give the user a clue as to where they are, the ALL and FAVES `div`s should ch
 
 We now want the `className` attribute on each `.film-list-filter` `div` to dynamically update when the state is changed. When `filter: all`, you want to give the `div` the class `is-active` to the `ALL` filter. When `filter: faves`, you want to give the `div` the class `is-active` to the `FAVES`.
 
-**Hint** This can be done by adding a line similar to this (different for each `div`) into the `className` parameter. This line in particular checks if the `filter` state is currently "all"; if it is, it sets the value to `is-active`. If it isn't, it does nothing.
-```js
-{this.state.filter === 'all' ? 'is-active' : ''}
-```
+<details>
+  <summary>Hint - one way to do this could be by adding a line similar to this (different for each <code>div</code>) into the <code>className</code> parameter:</summary>
+  This line in particular checks if the <code>filter</code> state is currently "all"; if it is, it sets the value to <code>is-active</code>. If it isn't, it does nothing. <code>{this.state.filter === 'all' ? 'is-active' : ''}</code>
+</details>
 
-**Hint 2**: Still stuck? The overall `div` for "ALL" will look like this. (Don't forget to change it for the other `div`).
-```js
-<div className={`film-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`} onClick={() => this.handleFilterClick('all')}>
-```
+<details>
+  <summary>Still stuck? The overall <code>div</code> for "ALL" will look like this:</summary>
+  <code><div className={`film-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`} onClick={() => this.handleFilterClick('all')}></code>
+    
+(Don't forget to change it for the other <code>div</code>).
+</details>
+
 
 Check in your browser that everything works.
