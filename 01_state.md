@@ -1,4 +1,13 @@
-# State
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) State
+
+
+### Learning Objectives
+*After this code-along section, you will be able to:*
+* Define state
+* Create an initial state in a component
+* Change the state of a component
+
+## Intro
 
 At this point, we know about React properties and how they relate to our component's data.
 * The thing is, `props` represent data that will be the same every time our component is rendered. What about data in our application that may change depending on user action?

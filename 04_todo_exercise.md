@@ -1,4 +1,6 @@
-# Exercise! Todo list.
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) ToDo List Exercise
+
+## Review
 
 
 So, we've gone through all of the basics of React. To really hammer it home with practice, let's walk through complete creation of an app. This will be a to-do list, keeping track of everything we need to do for the day (after we finish this!). It's a lot, so we're going to want it to be editable.
@@ -100,7 +102,7 @@ At this point, our app looks like this:
 
 ## Side note - let's quickly format it a little more nicely!
 
-Since we'll be looking at this for a while, let's make it less of an eyesore. Feel free to change the `index.css` file to include anything you'd like; on mine, I've centered the text and given it a light green background. You can grab mine [here](https://git.generalassemb.ly/education-product/React-Exercise-Solutions/blob/master/exercises/to-do-list/src/index.css).
+Since we'll be looking at this for a while, let's make it less of an eyesore. Feel free to change the `index.css` file to include anything you'd like; on mine, I've centered the text and given it a light green background. You can grab mine [here](images/index.css).
 
 ## Second, props.
 

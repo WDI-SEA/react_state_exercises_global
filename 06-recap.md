@@ -1,5 +1,4 @@
-## React Recap
-
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) React Recap
 
 Don't worry - while there is a lot to see at first, React is a pretty straightforward framework to use. You can create user interface components that extend from `React.Component`. These have a built-in lifecycle that accepts data and can trigger automatic re-rendering whenever that data is updating. In a React Component, an update in either the State or Props will trigger the method cascade that can lead to a `render()`.
 
@@ -14,6 +13,8 @@ Don't worry - while there is a lot to see at first, React is a pretty straightfo
   - State can trigger changes in `props`, or `props` can come from parent components.
 - State **never** gets passed back up to parent components! Unidirectional flow means changes are only ever propagated down the component tree.
 
-#### Last thoughts before the project...
+#### Last thoughts...
 
 [A video on React in general.](https://generalassembly.wistia.com/medias/2qrtla3y8a)
+
+Think of a few websites you've seen. Would they benefit from using React?

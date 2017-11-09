@@ -1,10 +1,8 @@
-You should already have the application from the previous exercise. If not, fork and clone the `react-film` repo.
-
-If you didn't follow along from the previous assignment, you can jump ahead to today's starter code by switching to the `components-and-props` branch.
-
-You can run your app with `npm install && npm run start`.
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) You Do: Film Exercise - State
 
 ## Your Mission
+
+Stop any project you currently have running; let's go back to the film application that you've started. You can run the app with `npm start`.
 
 Your goal today is to add some events to your app. You'll keep the events simple for now - each event will simply print a message to the console.
 - In the future, however, you're going to be able to add films to your list of favorites, filter the films to see only your favorites, and see the details for a specific film. Your work today will make that possible.
@@ -101,7 +99,7 @@ Now FAVES is clickable, so the next step is to make ALL clickable as well.
 
 Add an `onClick` inside `FilmListing` so that when "ALL" is clicked, it calls the `handleFilterClick` method with argument `'all'`.
 
-Now, you should see a message in the console when you click either option. Later, instead of viewing a message, clicking either option will display the correct list of movies to the user - but now we've assured the options are clickable, which is an important first step.
+Now, you should see a message in the console when you click either option. Later, instead of viewing a message, clicking either option will display the correct list of movies to the user - but now you've assured the options are clickable, which is an important first step.
 
 ### Tasks - Part 3: Handling Film Details
 
@@ -180,9 +178,9 @@ Note: It will be easier to read if you determine which class to set first, store
 <details>
   <summary>Hint - a more advanced and succinct way to write this function could be:</summary>
   <code>const isFave = (this.state.isFave) ? 'remove_from_queue' : 'add_to_queue'</code>
-  
+
   You can drop this in the <code>render</code> method. This checks the current <code>isFave</code> state for true or false.
-  
+
   If it's true, it sets the <code>const</code> variable <code>isFave</code> to <code>remove_from_queue</code>; when it's false, it sets the <code>const</code> variable <code>isFave</code> to <code>add_to_queue</code>.
 </details>
 
@@ -208,7 +206,7 @@ Inside of the `handleFilterClick` method on the `FilmListing` component, use `th
 
 To give the user a clue as to where they are, the ALL and FAVES `div`s should change color depending on which is active. In the CSS, we've already set the colors using a class; you'll need to dynamically change which class each `div` has.
 
-We now want the `className` attribute on each `.film-list-filter` `div` to dynamically update when the state is changed. When `filter: all`, you want to give the `div` the class `is-active` to the `ALL` filter. When `filter: faves`, you want to give the `div` the class `is-active` to the `FAVES`.
+You now want the `className` attribute on each `.film-list-filter` `div` to dynamically update when the state is changed. When `filter: all`, you want to give the `div` the class `is-active` to the `ALL` filter. When `filter: faves`, you want to give the `div` the class `is-active` to the `FAVES`.
 
 <details>
   <summary>Hint - one way to do this could be by adding a line similar to this (different for each <code>div</code>) into the <code>className</code> parameter:</summary>
@@ -218,7 +216,7 @@ We now want the `className` attribute on each `.film-list-filter` `div` to dynam
 <details>
   <summary>Still stuck? The overall <code>div</code> for "ALL" will look like this:</summary>
   <code><div className={`film-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`} onClick={() => this.handleFilterClick('all')}></code>
-    
+
 (Don't forget to change it for the other <code>div</code>).
 </details>
 

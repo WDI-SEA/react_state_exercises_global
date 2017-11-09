@@ -1,4 +1,4 @@
-# Exercise: React Calculator
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) You Do: React Calculator
 
 Now, it's time for you to check back on everything! You will be building a
 calculator with React, and only minimal instructions have been provided for you to really think about what's happening.

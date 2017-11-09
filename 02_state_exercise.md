@@ -1,4 +1,4 @@
-# You Do: Implement State (20 minutes) #
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) You Do: Implement State (20 minutes) #
 
 Let's implement state in our Blog by making `body` a mutable value.
 > Remember to switch the running application!

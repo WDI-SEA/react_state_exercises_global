@@ -1,4 +1,12 @@
-## State Recap
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) State Recap
+
+
+### Learning Objectives
+*After this code-along section, you will be able to:*
+* Describe the flow of methods in a component
+* Identify the triggers for re-rendering of a component
+
+## Review
 
 Now that you've wrapped up the Blog project for now, you should take a moment to review the component lifecycle at a high level.
 
