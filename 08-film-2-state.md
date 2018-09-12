@@ -85,7 +85,7 @@ Add an `onClick` inside `FilmListing` so that when "FAVES" is clicked, it calls 
 
 <details>
   <summary>Hint</summary>
-  This will look like this:
+  In order to pass in a parameter to a function, we have to open up parantheses, but doing so calls the function immediately. This is why <code>onClick={this.handleFilterClick('faves')}</code> makes handleFilterClick run immediately upon rendering of the component instead of when you click it. You'll need to stick with passing a function *definition* into onClick, so try wrapping this.handleFilterClick in an anonymous function like so:
   <code>onClick={() => this.handleFilterClick('faves')}</code>
 </details>
 
