@@ -159,11 +159,9 @@ When the user clicks the Fave icon/button to add or remove a film from their fav
 Inside of the `handleClick` method on the `Fave` component, use `this.setState` to toggle the value of `isFave`. "Toggle" means you always want to set the new value to the opposite of the current value.
 
 <details>
-  <summary>Hint - one way to do this could be:</summary>
-  <code>isFave: !this.state.isFave</code>
+  <summary>Hint</summary>
+  <code>isFave: !this.state.isFave</code> or use a ternery statement
 </details>
-
-
 
 #### Step 5: Set the `className` on `div` based on the `IsFave` state
 
@@ -176,12 +174,8 @@ You need to make this happen:
 Note: It will be easier to read if you determine which class to set first, store that value in a variable, then insert that variable into the `className` attribute.
 
 <details>
-  <summary>Hint - a more advanced and succinct way to write this function could be:</summary>
-  <code>const isFave = (this.state.isFave) ? 'remove_from_queue' : 'add_to_queue'</code>
-
-  You can drop this in the <code>render</code> method. This checks the current <code>isFave</code> state for true or false.
-
-  If it's true, it sets the <code>const</code> variable <code>isFave</code> to <code>remove_from_queue</code>; when it's false, it sets the <code>const</code> variable <code>isFave</code> to <code>add_to_queue</code>.
+  <summary>Hint</summary>
+  You can set <code>isFave</code> in the <code>render</code> method, but make sure it's above the <code>return</code> statement. Try using string interpolation to insert the variable in to className without having to replace the <code>film-row-fave</code> classname every time. (Remember you're in JSX!)
 </details>
 
 Once you have this, clicking the "Add" icon in each row should change the icon displayed.
