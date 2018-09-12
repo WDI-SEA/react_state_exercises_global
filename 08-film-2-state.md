@@ -135,9 +135,11 @@ The first state you'll add will be whether a currently selected film is a user's
 
 Add a constructor method to the `Fave` component. Remember that any time you add a constructor to a class-based component, you have to call the `super` method (and pass it `props`).
 
-#### Step 2: Bind your event handler to this component
+#### Step 2 (NOT APPLICABLE IF USING ARROW FUNCTIONS): Bind your event handler to this component
 
-`this` binding can be a very finicky topic in JavaScript, but there are tricks to using it. To make your event handler work properly, you'll need to bind `this` to it. Add this line to your `Fave` component's constructor:
+`this` binding can be a very finicky topic in JavaScript, but there are tricks to using it. To make your event handler work properly, you'll need to bind `this` to it. (Arrow functions take care of this for you, so you can skip this part if you're using ES6!) 
+
+Add this line to your `Fave` component's constructor:
 
 ```js
 // This binding is necessary to make `this` work in the callback
@@ -203,15 +205,8 @@ To give the user a clue as to where they are, the ALL and FAVES `div`s should ch
 You now want the `className` attribute on each `.film-list-filter` `div` to dynamically update when the state is changed. When `filter: all`, you want to give the `div` the class `is-active` to the `ALL` filter. When `filter: faves`, you want to give the `div` the class `is-active` to the `FAVES`.
 
 <details>
-  <summary>Hint - one way to do this could be by adding a line similar to this (different for each <code>div</code>) into the <code>className</code> parameter:</summary>
-  This line in particular checks if the <code>filter</code> state is currently "all"; if it is, it sets the value to <code>is-active</code>. If it isn't, it does nothing. <code>{this.state.filter === 'all' ? 'is-active' : ''}</code>
-</details>
-
-<details>
-  <summary>Still stuck? The overall <code>div</code> for "ALL" will look like this:</summary>
-  <code><div className={`film-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`} onClick={() => this.handleFilterClick('all')}></code>
-
-(Don't forget to change it for the other <code>div</code>).
+  <summary>Hint</summary>
+  Recall the string interpolation you used to toggle a <code>className</code> in the <code>Fave</code> component. Can you do something similar here?
 </details>
 
 
