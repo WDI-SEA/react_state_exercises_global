@@ -133,7 +133,7 @@ You have now triggered the events you'll need to update your app. Next, you'll a
 
 The first state you'll add will be whether a currently selected film is a user's favorite.
 
-Add a constructor method to the `Fave` component. Remember that any time you add a constructor to a class-based component, you have to call the `super` method (and pass it `props`).
+Add a constructor method to the `Fave` component. Remember that any time you add a constructor to a class-based component, you have to call the `super` method (and pass it `props` if you need acces to `this.props` in the constructor).
 
 #### Step 2 (NOT APPLICABLE IF USING ARROW FUNCTIONS): Bind your event handler to this component
 
@@ -169,15 +169,15 @@ Inside of the `handleClick` method on the `Fave` component, use `this.setState` 
 
 You now want the `className` attribute on the `div` to dynamically update when the state is changed. Currently, the `className` on the `div` is `add_to_queue`. However, if the film is already favorited, then the film is already in the queue. Therefore, when `isFave: true`, the `className` should instead be `remove_from_queue`.
 
-You need to make this happen:
-- When `isFave: true`, you want to give the `div` the class `remove_from_queue`. When `isFave: false` you want to give the `div` the class `add_to_queue`.
+What you need to make this happen:
+- When `isFave: true`, you want the `div` to have the class`remove_from_queue`. When `isFave: false` you want to the `div` to have the class `add_to_queue`.
 - You also want to change the text that's rendered in the `p` to be the same text as the class - `remove_from_queue` or `add_to_queue`.
 
 Note: It will be easier to read if you determine which class to set first, store that value in a variable, then insert that variable into the `className` attribute.
 
 <details>
   <summary>Hint</summary>
-  You can set <code>isFave</code> in the <code>render</code> method, but make sure it's above the <code>return</code> statement. Try using string interpolation to insert the variable in to className without having to replace the <code>film-row-fave</code> classname every time. (Remember you're in JSX!)
+  You can set <code>isFave</code> in the <code>render</code> method, but make sure it's above the <code>return</code> statement. Try using string interpolation to insert the variable in to className without having to replace the <code>film-row-fave</code> classname every time. (Remember you're in JSX, so you'll need to wrap the back-ticks in curly brackets!)
 </details>
 
 Once you have this, clicking the "Add" icon in each row should change the icon displayed.
@@ -206,7 +206,7 @@ You now want the `className` attribute on each `.film-list-filter` `div` to dyna
 
 <details>
   <summary>Hint</summary>
-  Recall the string interpolation you used to toggle a <code>className</code> in the <code>Fave</code> component. Can you do something similar here?
+  Try using string interpolation to include a ternery statement in the <code>className</code>.
 </details>
 
 
