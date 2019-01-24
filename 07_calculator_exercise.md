@@ -53,20 +53,12 @@ explicitly `bind` functions with `this` in order for `this` to remain the same
 inside that function. If you're having trouble calling functions off `this` like
 `this.setState`, take time to consider why this is necessary and see if that leads you to, using the documentation, see how to do it.
 
-```js
-// This binding is necessary to make `this` work in the callback
-this.handleClick = this.handleClick.bind(this)
-```
+> IMPORTANT NOTE: Arrow functions solve this problem for us, so we never have to think about it. WHOO! :D
 
 Revisit the To-Do List project to see how we previously reacted to changing
 input text.
 
-> <details>
-<summary>Hint: Where should the event binding go?</summary>
-In the same component as it's being used - in fact, right on the input.
-</details>
-
-### Step 5
+### Step 4
 Once you've chosen how to bind your inputs to an event, you'll need to create a
 method. The method should accept the triggered event, get the input values from
 your form, add them together, and set part of the state to the new `sum`.
@@ -78,7 +70,7 @@ In the same component as it's being used - between the constructor and the rende
 
 > Thought: How will you handle inputs that aren't numbers?
 
-### Step 6
+### Step 5
 Once the state of the `sum` has been set, React will re-render the whole
 component. Make sure you have a place in your JSX that displays the result!
 
