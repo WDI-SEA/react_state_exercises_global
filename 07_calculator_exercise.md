@@ -35,7 +35,7 @@ Set up the initial state of your component. What state attributes will you
 need to track? What values should those state items start with? Where is that
 state displayed in the browser?
 
-*Hint: You will only need one state*
+> Hint: You will only need one state. That one state can hold as many key-value pairs as you need!
 
 ### Step 3
 Bind the inputs to an event so you can trigger a function when their values
