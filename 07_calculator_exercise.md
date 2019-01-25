@@ -38,28 +38,36 @@ state displayed in the browser?
 > Hint: You will only need one state. That one state can hold as many key-value pairs as you need!
 
 ### Step 3
-Bind the inputs to an event so you can trigger a function when their values
-change. Consider: should it be a click event? A submit event? Something else?
-It's up to you!
+You will want to trigger a function when the values in your textboxes change. You can capture these values by setting a function on the onChange property. Let's say I have a textbox tracking my first number.
 
-Here is a lot of documentation to help you choose what you want to do and how to do it:
+```
+<input type="number"
+  name="num1"
+  placeholder="Enter your first number"
+  value={this.state.num1}
+  onChange={ (e) => this.setNum(e, 'num1') }
+/>
+```
+
+I want to store this number as part of my state. Let's say I decided to call it `num1`. I could set my state like so:
+
+```
+setNum = (e, num) => {
+  this.setState({ [num]: e.target.value});
+}
+```
+
+> Hint: The [] are there so we can use a dynamic key value! This value becomes `num1` or `num2` depending on what was clicked and sent to the function from `onChange`.
+
+If you decided to use buttons for your calculator, you probably want to use `onClick` instead of `onChange`, but the concepts are the same! Here is some documentation to help you choose what you want to do and how to do it:
 
 * [React form documentation](https://facebook.github.io/react/docs/forms.html)
 * [A list of events React supports](https://facebook.github.io/react/docs/events.html#supported-events)
-* [How to handle events](https://facebook.github.io/react/docs/handling-events.html)
 
-Notice that the "How to handle events" link has an example explaining you must
-explicitly `bind` functions with `this` in order for `this` to remain the same
-inside that function. If you're having trouble calling functions off `this` like
-`this.setState`, take time to consider why this is necessary and see if that leads you to, using the documentation, see how to do it.
-
-> IMPORTANT NOTE: Arrow functions solve this problem for us, so we never have to think about it. WHOO! :D
-
-Revisit the To-Do List project to see how we previously reacted to changing
-input text.
+> IMPORTANT NOTE: Arrow functions make it so we don't have to use `bind`, so we never have to think about it. WHOO! :D
 
 ### Step 4
-Once you've chosen how to bind your inputs to an event, you'll need to create a
+Once you've got your event handlers set up to capture the input, you'll need to create a
 method. The method should accept the triggered event, get the input values from
 your form, add them together, and set part of the state to the new `sum`.
 
