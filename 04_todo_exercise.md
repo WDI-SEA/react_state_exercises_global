@@ -46,8 +46,8 @@ Then, we'll change the contents of the HTML to have a header and the start of a 
 This looks like:
 
 ```js
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
 class MyList extends Component {
   render() {
@@ -76,10 +76,8 @@ import ReactDOM from 'react-dom';
 import MyList from './MyList';
 import './index.css';
 
-var toDos = ["Buy ice cream", "Eat ice cream", "Go to the gym"]
-
 ReactDOM.render(
-  <MyList theList={toDos} />,
+  <MyList />,
   document.getElementById('root')
 )
 
@@ -114,9 +112,9 @@ Then, in `ListItem`, we'll add a list item that uses the `doThis` prop instead o
 
 Now, we have in `MyList.js`:
 ```js
-import React, { Component } from 'react';
-import './App.css';
-import ListItem from './ListItem';
+import React, { Component } from 'react'
+import './App.css'
+import ListItem from './ListItem'
 
 class MyList extends Component {
   render() {
@@ -134,12 +132,13 @@ class MyList extends Component {
 export default MyList
 ```
 
+Now that we've passed in a prop to `ListItem`, we need to call it in `ListItem.js`
+using `this.props`
 
-... and in `ListItem.js`:
-
+`ListItem.js` will now look like this:
 ```js
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
 class ListItem extends Component {
   render() {
@@ -179,52 +178,23 @@ let excitedPhrases = phrases.map( (phrase, index) => {
 })
 // excitedPhrases is ["ice cream!", "dinosaurs!", "hobbits!"]
 ```
-
+> Note that in the above example, moustaches are used after the arrow rather than the open parentheses in the earlier example.
+In ES6, with arrow functions, you can omit the curly brackets and `return` keyword if the return value can be written as a single statement. In the same way that we `return` a single HTML element in a component's `render()` function, we can place this single-statement return value in parentheses and make use of line-breaks without confusing javascript.
 
 ##### Plan
 
-* In the `MyList` component, have an array of items for the list, uncreatively called `theList`.
+* In the `MyList` component, have an array of items for the list—uncreatively called `theList`—that is passed down from `index.js` in the form of a prop
 * Create a variable to refer to the new array output by the `map` method, uncreatively but helpfully called `todoItems`.
 * Use `map` to iterate through the `todoItems` array, one `item` (this could be any name you'd like) at a time, and use each one to create a `ListItem` component in the `todoItems` list.
 * We can later refer to this list by just calling the variable in JSX (like any other variable).  For example, we could say  `{todoItems}`.
 
 ##### Implementing the Plan
 
-Here is the `map` function call that will do this for us, which we'll put in the `MyList` component.:
+First, let's make our list in `index.js`. Make an array of strings that represent your todo items. 
+Fill it with what you need to do for the day. Once you've done that, pass that array into your
+`<MyList />` component.
 
-```js
-let todoItems = this.props.theList.map( (item, index) => (
-  <ListItem doThis={item} key={index} />
-))
-```
-
-Let's also actually create that array! In `index.js`, create an array variable called `toDos`. Fill it with what you need to do for the day.
-
-My final `MyList` component class looks like this:
-
-```jsx
-class MyList extends Component {
-
-  render() {
-
-    let todoItems = this.props.theList.map( (item, index) => (
-      <ListItem doThis={item} key={index} />
-    ))
-
-    return (
-      <div>
-        <h1>Things I should stop procrastinating:</h1>
-        <ul>
-          {todoItems}
-        </ul>
-      </div>
-    )
-  }
-}
-```
-
-And the `index.js` file:
-
+Your `index.js` should look something like this:
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -237,10 +207,41 @@ ReactDOM.render(
   <MyList theList={toDos} />,
   document.getElementById('root')
 )
-
 ```
 
-And the `ListItem.js`, which hasn't changed:
+The next step is to use the `map` function to create an array of `<ListItem />`s, each with 
+its own `doThis` prop that represents a todo item from `theList`.
+
+
+Here is the `map` function call that will do this for us, which we'll put in the `MyList` component:
+```js
+let todoItems = this.props.theList.map((item, index) => (
+  <ListItem doThis={item} key={index} />
+))
+```
+The last step is to call the `todoItems` in the render function of `MyList` class.
+
+My final `MyList` component class looks like this:
+```jsx
+class MyList extends Component {
+  render() {
+    let todoItems = this.props.theList.map((item, index) => (
+      <ListItem doThis={item} key={'todo' + index} />
+    ))
+    
+    return (
+      <div>
+        <h1>Things I should stop procrastinating:</h1>
+        <ul>
+          {todoItems}
+        </ul>
+      </div>
+    )
+  }
+}
+```
+
+And the final `ListItem.js`, which hasn't changed:
 ```js
 import React, { Component } from 'react';
 import './App.css';
