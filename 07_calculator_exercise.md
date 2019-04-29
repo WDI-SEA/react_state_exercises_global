@@ -24,7 +24,7 @@ as an example of how to create a basic component. Add the following JSX to your 
     <input type="text" />
     <span>+</span>
     <input type="text" />
-    <span>=</span>
+    <button>=</button>
     <h3>Addition results go here!</h3>
   </div>
 </div>
@@ -64,16 +64,15 @@ If you decided to use buttons for your calculator, you probably want to use `onC
 * [React form documentation](https://facebook.github.io/react/docs/forms.html)
 * [A list of events React supports](https://facebook.github.io/react/docs/events.html#supported-events)
 
-> IMPORTANT NOTE: Arrow functions make it so we don't have to use `bind`, so we never have to think about it. WHOO! :D
 
 ### Step 4
 Once you've got your event handlers set up to capture the input, you'll need to create a
-method. The method should accept the triggered event, get the input values from
-your form, add them together, and set part of the state to the new `sum`.
+method for your submit button. The method should accept the triggered event, get the input values from
+your state, add them together, and set part of the state to the new `sum`.
 
-> <details>
-<summary>Hint: Where should this method go?</summary>
-In the same component as it's being used - between the constructor and the render.
+<details>
+  <summary>Hint: Where should this method go?</summary>
+  <p>In the same component as it's being used - between the constructor and the render.</p>
 </details>
 
 > Thought: How will you handle inputs that aren't numbers?
