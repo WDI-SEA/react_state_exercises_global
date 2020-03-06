@@ -97,7 +97,7 @@ Try clicking FAVES - does it print to the console?
 
 Now FAVES is clickable, so the next step is to make ALL clickable as well.
 
-Add an `onClick` inside `FilmListing` so that when "ALL" is clicked, it calls the `handleFilterClick` method with argument `'all'`.
+Add an `onClick` inside `FilmListing` so that when "ALL" is clicked, it calls the `handleFilterClick` method with argument `'all'` and when "FAVES" is clicked, it calls `handleFilterClick` with the argument `faves`.
 
 Now, you should see a message in the console when you click either option. Later, instead of viewing a message, clicking either option will display the correct list of movies to the user - but now you've assured the options are clickable, which is an important first step.
 
@@ -207,6 +207,34 @@ You now want the `className` attribute on each `.film-list-filter` `div` to dyna
 <details>
   <summary>Hint</summary>
   Try using string interpolation to include a ternery statement in the <code>className</code>.
+</details>
+
+<details>
+  <summary>Solution</summary>
+  
+  ```javascript
+  return (
+    <div className="film-list">
+      <h1 className="section-title">FILMS</h1>
+      <div className="film-list-filters">
+          <div className={`film-list-filter ${filter === 'all' ? 'is-active' : ''}`} onClick={() => {
+            handleFilterClick("all")
+          }}>
+            ALL
+            <span className="section-count">{props.films.length}</span>
+          </div>
+          <div className={`film-list-filter ${filter === 'faves' ? 'is-active' : ''}`} onClick={()=>{
+            handleFilterClick("faves")
+          }}>
+            FAVES
+            <span className="section-count">0</span>
+          </div>
+      </div>
+      
+      {allFilms}
+    </div>
+  )
+  ```
 </details>
 
 
