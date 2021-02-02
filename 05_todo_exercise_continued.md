@@ -158,10 +158,10 @@ We'll also need two additional functions to represent the following changes in s
 
 * `newItemChange`, for when we type characters into an input field and change the value of `newItem`  
  * We'll need to get the current value of the input field and set state accordingly.
- > Create this function with an event parameter of 'e' like in `clearList`. Inside the function, change the state of `newItem` to `e.target.value` - this will be the value the user entered into the form.
+ > Create this function with an event parameter of 'e'. Inside the function, change the state of `newItem` to `e.target.value` - this will be the value the user entered into the form.
 
 * `addItem`, for when we submit the form
- * We'll need to make a copy of `toDoItemArray`, push the `newItem`, set `state` and finally clear `newItem`.
+ * We'll need to make a copy of `taskArray`, push the `newItem`, set `state` and finally clear `newItem`.
  > Create this function with an event parameter of 'e'. Inside the function, create a new variable initialized to the value of the array that is saved in state. Then, use `yourArray.push(<value>)` to push the new item from the state into the array. Set the `newItem` state back to an empty string, and set the `toDoItemArray` state to your new array.
 
 
@@ -216,4 +216,67 @@ addItem(e) {
   // then the rest of your code.
   // ...
 }
+```
+
+# Final Code
+
+```js
+import React, { Component } from 'react'
+import './App.css'
+import ListItem from './ListItem'
+
+class MyList extends Component {
+
+  state = {
+    taskArray: this.props.theList,
+    newItem: ''
+  }
+
+  clearList = () => {
+    console.log("clearing list")
+    this.setState({
+      taskArray: []
+    })
+  }
+
+  newItemChange = (e) =>{
+    this.setState({newItem: e.target.value})
+  }
+
+  addItem = (e) => {
+    e.preventDefault()
+    let tempTaskArray = this.state.taskArray
+    tempTaskArray.push(this.state.newItem)
+    this.setState({
+      taskArray: tempTaskArray,
+      newItem: ''
+    })
+  }
+
+  render() {
+
+    let todoItems = this.state.taskArray.map((item, index) => {
+      return <ListItem task={item} key={`todo${index}`} />
+    })
+
+    return(<div>
+      <h1>Things I should stop procrastinating:</h1>
+      <form>
+        <input 
+          type="text" 
+          placeholder="type an item here"
+          onChange={(e)=>this.newItemChange(e)}
+          value={this.state.newItem}
+        />
+        <button onClick={(e)=>this.addItem(e)}>Add It!</button>
+      </form>
+      <ul>
+        {todoItems}
+      </ul>
+      <button onClick={this.clearList}>Clear List</button>
+    </div>)
+  }
+}
+
+export default MyList
 ```
