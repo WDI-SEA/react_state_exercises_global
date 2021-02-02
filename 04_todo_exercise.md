@@ -278,7 +278,7 @@ My final `MyList` component class looks like this:
 class MyList extends Component {
   render() {
     let todoItems = this.props.theList.map((item, index) => {
-      return <ListItem task={item} key={'todo' + index} />
+      return <ListItem task={item} key={index} />
     })
     
     return (
