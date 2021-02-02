@@ -253,7 +253,7 @@ import ReactDOM from 'react-dom';
 import MyList from './MyList';
 import './index.css';
 
-var toDos = ["Buy ice cream", "Eat ice cream", "Go to the gym"]
+const toDos = ["Listen to Hot Mulligan", "Drink hot cocoa", "Eat hot cheetos"]
 
 ReactDOM.render(
   <MyList theList={toDos} />,
@@ -274,12 +274,12 @@ let todoItems = this.props.theList.map((item, index) => (
 The last step is to call the `todoItems` in the render function of `MyList` class.
 
 My final `MyList` component class looks like this:
-```jsx
+```js
 class MyList extends Component {
   render() {
-    let todoItems = this.props.theList.map((item, index) => (
-      <ListItem task={item} key={'todo' + index} />
-    ))
+    let todoItems = this.props.theList.map((item, index) => {
+      return <ListItem task={item} key={'todo' + index} />
+    })
     
     return (
       <div>
