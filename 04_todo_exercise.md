@@ -112,6 +112,39 @@ Let's make a component for `ListItem`s. This component can simply render  `<li>M
 
 * Don't forget to import your `ListItem` component into `MyList.js`.  Then, include the component in what `MyList` renders with `<ListItem />` under the existing header (in place of the existing list item)!
 
+**ListItem.js**
+```js
+import React, { Component } from 'react'
+import './App.css'
+
+class ListItem extends Component {
+  render() {
+    return(<li>Make the list!</li>)
+  }
+}
+
+export default ListItem
+```
+
+**MyList.js**
+```js
+import React, { Component } from 'react'
+import './App.css'
+import ListItem from './ListItem'
+
+class MyList extends Component {
+  render() {
+    return(<div>
+      <h1>Things I should stop procrastinating:</h1>
+      <ul>
+        <ListItem />
+      </ul>
+    </div>)
+  }
+}
+
+export default MyList
+```
 
 At this point, our app looks like this:
 
