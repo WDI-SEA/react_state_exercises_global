@@ -6,23 +6,54 @@ Remember, in a React component, `state` is just another object, like `props`. Th
 
 ## Clearing the items
 We're going to add a button to the list that allows users to clear away
-everything in it. First, let's make sure the list is all set up to display
-items properly already:
+everything in it. 
 
-* At the top of the `MyList` component, create a constructor that sets an initial state for an attribute called `toDoItemArray`. It should be equal to the initial list that's passed in.
+### Set up state:
+
+First, let's convert the list to be a state attribute, that way we can change it using `setState` later!
+
+* At the top of the `MyList` component, set an initial state for an attribute called `taskList`. It should be equal to the initial list that's passed in as a prop from `index.js`.
 * Don't forget to change the `map` call!
 * Always check to be sure your website is accurate (it should still look the same).
 
-Now, we'll look into making this list changeable. Remember, updating state will involve calling `setState`. Let's use a simple example with a "clear" button in `MyList`.
+```js
+import ListItem from './ListItem'
 
+class MyList extends Component {
+
+  state = {
+    taskArray: this.props.theList
+  }
+  
+  render() {
+    
+    let todoItems = this.state.taskArray.map((item, index) => {
+      return <ListItem task={item} key={`todo${index}`} />
+    })
+
+    return(<div>
+      <h1>Things I should stop procrastinating:</h1>
+      <ul>
+        {todoItems}
+      </ul>
+    </div>)
+  }
+}
+
+export default MyList
+```
+
+### Add a clearList helper method
+
+Now, we'll look into making this list changeable. Remember, updating state will involve calling `setState`. Let's use a simple example with a "clear" button in `MyList`.
 
 First, in `MyList`, we define the function that will be called by the button:
 
 ```js
-clearList (e) {
+clearList = () => {
   this.setState({
-    toDoItemArray: []
-  })
+      taskArray: []
+    })
 }
 ```
 
@@ -40,46 +71,47 @@ This makes our `MyList` component look like this:
 
 **MyList.js**
 ```js
+import React, { Component } from 'react'
+import './App.css'
+import ListItem from './ListItem'
+
 class MyList extends Component {
 
-  constructor (props) {
-    super()
-    this.state = {
-      toDoItemArray: props.theList
-    }
+  state = {
+    taskArray: this.props.theList
   }
 
-  clearList (e) {
+  clearList = () => {
+    console.log("clearing list")
     this.setState({
-      toDoItemArray: []
+      taskArray: []
     })
   }
 
   render() {
 
-    let todoItems = this.state.toDoItemArray.map( (item, index) => (
-      <ListItem doThis={item} key={index} />
-    ))
+    let todoItems = this.state.taskArray.map((item, index) => {
+      return <ListItem task={item} key={`todo${index}`} />
+    })
 
-    return (
-      <div>
-        <h1>Things I should stop procrastinating:</h1>
-        <ul>
-          {todoItems}
-        </ul>
-        <button onClick={(e) => this.clearList(e)}>Finished the list!</button>
-      </div>
-    )
+    return(<div>
+      <h1>Things I should stop procrastinating:</h1>
+      <ul>
+        {todoItems}
+      </ul>
+      <button onClick={this.clearList}>Clear List</button>
+    </div>)
   }
 }
 
 export default MyList
+
 ```
 
 > Don't forget to try it out!
 
 Now when we click on the button, the following will occur:
-* `this.setState` will set the state, `toDoItemArray`, to be empty: `{toDoItemArray: []}`
+* `this.setState` will set the state, `taskArray`, to be empty: `{taskArray: []}`
 * The render function for `MyList` will be called and re-render the component.
 * We'll feel good about ourselves for going to the gym, even if we ate ice cream first.
 
@@ -106,12 +138,12 @@ Now when we click on the button, the following will occur:
  programmer.
 
  ```js
- clearList (e) {
-   console.log("Clearing list!")
-   this.setState({
-     toDoItemArray: []
-   })
- }
+  clearList = () => {
+    console.log("clearing list")
+    this.setState({
+      taskArray: []
+    })
+  }
  ```
 
 ## Adding items
