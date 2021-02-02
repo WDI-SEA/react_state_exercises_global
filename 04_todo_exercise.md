@@ -174,7 +174,7 @@ class MyList extends Component {
       <div>
         <h1>Things I should stop procrastinating:</h1>
         <ul>
-          <ListItem doThis="Buy ice cream" />
+          <ListItem task="Buy ice cream" />
         </ul>
       </div>
     )
@@ -196,7 +196,7 @@ class ListItem extends Component {
   render() {
     return (
       <div>
-        <li>{this.props.doThis}</li>
+        <li>{this.props.task}</li>
       </div>
     )
   }
@@ -268,7 +268,7 @@ its own `doThis` prop that represents a todo item from `theList`.
 Here is the `map` function call that will do this for us, which we'll put in the `MyList` component:
 ```js
 let todoItems = this.props.theList.map((item, index) => (
-  <ListItem doThis={item} key={index} />
+  <ListItem task={item} key={index} />
 ))
 ```
 The last step is to call the `todoItems` in the render function of `MyList` class.
@@ -278,7 +278,7 @@ My final `MyList` component class looks like this:
 class MyList extends Component {
   render() {
     let todoItems = this.props.theList.map((item, index) => (
-      <ListItem doThis={item} key={'todo' + index} />
+      <ListItem task={item} key={'todo' + index} />
     ))
     
     return (
@@ -302,7 +302,7 @@ class ListItem extends Component {
   render() {
     return (
       <div>
-        <li>{this.props.doThis}</li>
+        <li>{this.props.task}</li>
       </div>
     )
   }
