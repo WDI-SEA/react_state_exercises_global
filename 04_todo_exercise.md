@@ -17,31 +17,68 @@ Let's get started!
 Change directories to the main directory you're storing your projects in. Inside it, run your command:
 
 ```sh
-$ create-react-app todo-list
+npx create-react-app todo-list
 ```
 
 The tool created a new directory for our app, so let's move into it...
 
 ```sh
-$ cd todo-list
+cd todo-list
 ```
 
 Use `npm start` to start a server that will serve your new React application!
 
 
 ```sh
-$ npm start
+npm start
 ```
 
 * Check it out! If you browse to http://localhost:3000, you should have a fresh react app.
 
 * Make sure that as you go, you frequently check the site to ensure your changes are all reflecting accurately!
 
-## First, the basic list.
+## Set up App.js for a class component.
 
-Let's change the name of the component in `App.js` to something more meaningful, like `MyList`. Also change the name of the file from `App.js` to `MyList.js`, since best practices include keeping the file name the same as the component it contains as often as possible.
+Let's name the component in `App.js` to something more meaningful, like `MyList`. Also change the name of the file from `App.js` to `MyList.js`, since best practices include keeping the file name the same as the component it contains as often as possible.
 
-Then, we'll change the contents of the HTML to have a header and the start of a list.
+Then, we'll replace the functional component with a class component and put the appropriate import statement at the top.
+
+```js
+import React, { Component } from 'react'
+import './App.css'
+
+class MyList extends Component {
+  render() {
+    return ()
+  }
+}
+
+export default MyList
+```
+
+## Fix index.js to display MyList.
+
+Change the name of the component where it's rendered in index.js! You'll also have to change the `import` statement in `index.js`, since you changed the name of the file containing the component that `index.js` is importing from!
+
+`index.js` now looks like this:
+
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MyList from './MyList';
+import './index.css';
+
+ReactDOM.render(
+  <MyList />,
+  document.getElementById('root')
+)
+
+```
+
+## Set up the basic list.
+
+Now change the contents of the HTML to have a header and the start of a list.
 
 This looks like:
 
@@ -63,24 +100,6 @@ class MyList extends Component {
 }
 
 export default MyList
-```
-
-> Remember to change the name of the component where it's rendered in index.js! You'll also have to change the `import` statement in `index.js`, since you changed the name of the file containing the component that `index.js` is importing from!
-
-`index.js` now looks like this:
-
-
-```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import MyList from './MyList';
-import './index.css';
-
-ReactDOM.render(
-  <MyList />,
-  document.getElementById('root')
-)
-
 ```
 
 Now, our webpage displays an empty list.
