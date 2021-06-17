@@ -217,9 +217,9 @@ Borrowing from a bonus exercise earlier, the easiest way to do this is by using 
 
 
 ```js
-let <new_Variable_Name> = <the_Array_We_Are_Mapping>.map( (local_Variable_Name_to_Loop, index) => (
-  <what_To_Do_With_Each_Item_in_Loop>
-))
+let newArray = oldArray.map((item, index) => {
+  /* how to change each item in the array */
+})
 ```
 
 Here's a simple example that makes a new array by adding an `!` to each element of an array.
