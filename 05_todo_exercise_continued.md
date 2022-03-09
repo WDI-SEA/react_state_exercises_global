@@ -64,7 +64,7 @@ Then, add a button after the whole `<ul>` list.
 <ul>
   ...
 </ul>
-<button onClick={(e) => this.clearList(e)}>Finished the list!</button>
+<button onClick={this.clearList}>Finished the list!</button>
 ```
 
 This makes our `MyList` component look like this:
