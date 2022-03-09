@@ -28,7 +28,7 @@ class MyList extends Component {
   render() {
     
     let todoItems = this.state.taskArray.map((item, index) => {
-      return <ListItem task={item} key={`todo${index}`} />
+      return <ListItem task={item} key={index} />
     })
 
     return(<div>
