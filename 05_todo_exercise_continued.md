@@ -156,7 +156,7 @@ Let's add one more thing to our app: an input field for more items. In order to 
 
 We'll also need two additional functions to represent the following changes in state:
 
-* `newItemChange`, for when we type characters into an input field and change the value of `newItem`  
+* `handleChange`, for when we type characters into an input field and change the value of `newItem`  
  * We'll need to get the current value of the input field and set state accordingly.
  > Create this function with an event parameter of 'e'. Inside the function, change the state of `newItem` to `e.target.value` - this will be the value the user entered into the form.
 
@@ -171,7 +171,7 @@ Lastly, we'll need to add a form to our `render` method.
 <form>
   <input type="text"
    placeholder="Type an item here"
-   onChange={(e) => this.newItemChange(e)}
+   onChange={this.handleChange}
    value={this.state.newItem}
   />
   <button onClick={(e) => this.addItem(e)}>Add it!</button>
@@ -180,7 +180,7 @@ Lastly, we'll need to add a form to our `render` method.
 
 Notes:
  * We can use `onChange` on the `input` field to trigger an event when the text in the box is changed.  
- * Any function called when an event occurs (like functions that happen `onClick`, `onSubmit`, or `onChange`) can accept an argument that is the event. We pass this in as `e` to `newItemChange` and `addItem`.
+ * Any function called when an event occurs (like functions that happen `onClick`, `onSubmit`, or `onChange`) can accept an argument that is the event. We pass this in as `e` to `handleChange` and `addItem`.
 
 ## Debugging Adding Items
 If you click "Add it!" and the page doesn't change, and you think you've done
@@ -239,7 +239,7 @@ class MyList extends Component {
     })
   }
 
-  newItemChange = (e) =>{
+  handleChange = (e) =>{
     this.setState({newItem: e.target.value})
   }
 
@@ -256,7 +256,7 @@ class MyList extends Component {
   render() {
 
     let todoItems = this.state.taskArray.map((item, index) => {
-      return <ListItem task={item} key={`todo${index}`} />
+      return <ListItem task={item} key={index} />
     })
 
     return(<div>
@@ -265,7 +265,7 @@ class MyList extends Component {
         <input 
           type="text" 
           placeholder="type an item here"
-          onChange={(e)=>this.newItemChange(e)}
+          onChange={handleChange}
           value={this.state.newItem}
         />
         <button onClick={(e)=>this.addItem(e)}>Add It!</button>
