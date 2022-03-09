@@ -168,13 +168,13 @@ We'll also need two additional functions to represent the following changes in s
 Lastly, we'll need to add a form to our `render` method.
 
 ```js
-<form>
+<form onSubmit={this.addItem}>
   <input type="text"
    placeholder="Type an item here"
    onChange={this.handleChange}
    value={this.state.newItem}
   />
-  <button onClick={(e) => this.addItem(e)}>Add it!</button>
+  <button type="submit"}>Add it!</button>
 </form>
 ```
 
