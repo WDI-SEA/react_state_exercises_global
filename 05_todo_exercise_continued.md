@@ -243,14 +243,11 @@ class MyList extends Component {
     this.setState({newItem: e.target.value})
   }
 
-  addItem = (e) => {
+  addItem = (e) =>{
     e.preventDefault()
-    let tempTaskArray = this.state.taskArray
-    tempTaskArray.push(this.state.newItem)
-    this.setState({
-      taskArray: tempTaskArray,
-      newItem: ''
-    })
+    let newList = this.state.taskArray
+    newList.push(this.state.newItem)
+    this.setState({taskArray: newList, newItem:''})
   }
 
   render() {
@@ -261,14 +258,14 @@ class MyList extends Component {
 
     return(<div>
       <h1>Things I should stop procrastinating:</h1>
-      <form>
+      <form onSubmit={this.addItem}>
         <input 
           type="text" 
           placeholder="type an item here"
           onChange={handleChange}
           value={this.state.newItem}
         />
-        <button onClick={(e)=>this.addItem(e)}>Add It!</button>
+        <button type="submit"}>Add It!</button>
       </form>
       <ul>
         {todoItems}
